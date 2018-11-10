@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider, styled,  } from 'reakit'
+import theme from "./theme";
+import { BackgroundImage } from "./BackgroundImage";
+import {palette} from "styled-tools"
+
+const PageWrapper = styled.div`
+  font-family: sans-serif;
+  color:${palette("primaryText", "white")}`
 
 class App extends Component {
-  render() {
+  render() {  
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider theme={theme}>
+        <PageWrapper>
+          <BackgroundImage />
+        </PageWrapper>
+      </Provider>
     );
   }
 }
