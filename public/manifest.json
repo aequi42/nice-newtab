@@ -9,9 +9,6 @@
     "newtab": "index.html"
   },
   "permissions": [
-    "tabs",
-    "browserSettings",
-    "history",
-    "<all_urls>"
+    "topSites"
   ]
 }

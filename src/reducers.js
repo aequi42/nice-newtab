@@ -1,35 +1,43 @@
 import { ActionTypes } from "./actions";
 
 const startPage = (state, action) => {
-    console.log(state)
     if (!state) {
         state = {
             category: "landscape",
             image: null,
             imageReady: false,
-            currentTime: new Date()
+            currentTime: new Date(),
+            topSitesToDisplay: []
         }
     }
+    let returnObject = { ...state }
     switch (action.type) {
         case ActionTypes.loadImage:
-            return {
-                ...state,
-                imageReady: false
-            };
+            returnObject.imageReady = false
+            break
         case ActionTypes.imageReady:
-            return {
-                ...state,
-                image: action.data,
-                imageReady: true
-            }
+            returnObject.image = action.data
+            returnObject.imageReady = true
+            break
         case ActionTypes.timerTick:
-            return {
-                ...state,
-                currentTime: new Date()
-            }
-        default:
-            return { ...state };
+            returnObject.currentTime = new Date()
+            break
     }
+    returnObject.topSitesToDisplay = topSites(state.topSitesToDisplay, action)
+    return returnObject
 }
 
-export default startPage;
+const topSites = (state = [], action) => {
+    let stateToReturn = [...state]
+    switch (action.type) {
+        case ActionTypes.setTopSites:
+            stateToReturn.push(action.sites)
+            break
+        case ActionTypes.removeTopSite:
+            stateToReturn.push(state.filter(site => site.url !== action.site))
+            break
+    }
+    return stateToReturn
+}
+
+export default startPage
