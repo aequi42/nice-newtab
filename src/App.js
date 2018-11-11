@@ -6,6 +6,7 @@ import { PopulatedBackgroundImage } from './Container/PopulatedBackgroundImage';
 import { connect } from "react-redux";
 
 import { loadImage } from './actions';
+import { Layout } from './Components/Layout';
 
 const PageWrapper = styled.div`
   font-family: sans-serif;
@@ -18,6 +19,7 @@ class App extends Component {
       <Provider theme={theme}>
         <PageWrapper>
           <PopulatedBackgroundImage />
+          <Layout />
         </PageWrapper>
       </Provider>
     );

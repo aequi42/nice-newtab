@@ -1,12 +1,13 @@
 import { ActionTypes } from "./actions";
 
-    const startPage = (state, action) => {
+const startPage = (state, action) => {
     console.log(state)
     if (!state) {
         state = {
             category: "landscape",
             image: null,
-            imageReady: false
+            imageReady: false,
+            currentTime: new Date()
         }
     }
     switch (action.type) {
@@ -21,8 +22,13 @@ import { ActionTypes } from "./actions";
                 image: action.data,
                 imageReady: true
             }
+        case ActionTypes.timerTick:
+            return {
+                ...state,
+                currentTime: new Date()
+            }
         default:
-            return state;
+            return { ...state };
     }
 }
 

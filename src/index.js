@@ -7,11 +7,14 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import  thunk  from "redux-thunk";
 import persistLocal from "redux-localstorage";
 import reducer from "./reducers"
+import timerMiddleware from 'redux-timer';
+
 const middleWare = compose(
     applyMiddleware(thunk),
-    persistLocal(null,{key: "niceStartPage"})
+    persistLocal(["category","image","imageReady"],{key: "niceStartPage"}),
+    applyMiddleware(timerMiddleware)
 )
-const store = createStore(reducer, middleWare)
+const store = createStore(reducer,{ currentTime: new Date() }, middleWare)
 
 ReactDOM.render(<StateProvider store={store}><App /></StateProvider>, document.getElementById('root'));
 
