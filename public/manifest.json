@@ -1,22 +1,17 @@
 {
-
   "manifest_version": 2,
-  "name": "FlosStartseite",
-  "version": "1.0",
-
-  "description": "Adds a red border to all webpages matching mozilla.org.",
+  "name": "nice-newtab",
+  "version": "0.1.0",
+  "homepage_url": "https://github.com/aequi42/nice-newtab",
+  "description": "This is a visually pleasing \"new tab page\". It uses the Unsplash-API to display nice pictures.",
   "content_scripts": [],
-
-
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-
   "permissions": [
     "tabs",
     "browserSettings",
     "history",
     "<all_urls>"
   ]
-
 }

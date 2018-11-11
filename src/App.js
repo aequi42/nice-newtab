@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
-import { Provider, styled,  } from 'reakit'
+import { Provider, styled, } from 'reakit'
 import theme from "./theme";
-import { BackgroundImage } from "./BackgroundImage";
-import {palette} from "styled-tools"
+import { palette } from "styled-tools"
+import { PopulatedBackgroundImage } from './Container/PopulatedBackgroundImage';
+import { connect } from "react-redux";
+
+import { loadImage } from './actions';
 
 const PageWrapper = styled.div`
   font-family: sans-serif;
-  color:${palette("primaryText", "white")}`
+  color:${palette("primaryText", "white")};
+  `
 
 class App extends Component {
-  render() {  
+  render() {
     return (
       <Provider theme={theme}>
         <PageWrapper>
-          <BackgroundImage />
+          <PopulatedBackgroundImage />
         </PageWrapper>
       </Provider>
     );
   }
 }
 
-export default App;
+export default connect()(App);
