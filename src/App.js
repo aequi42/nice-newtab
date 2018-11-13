@@ -4,7 +4,7 @@ import theme from "./theme";
 import { palette } from "styled-tools"
 import { PopulatedBackgroundImage } from './Container/PopulatedBackgroundImage';
 import { connect } from "react-redux";
-
+import moment from "moment"
 import { loadImage } from './actions';
 import { Layout } from './Components/Layout';
 
@@ -14,6 +14,9 @@ const PageWrapper = styled.div`
   `
 
 class App extends Component {
+  componentDidMount() {
+    moment().locale(window.browser.i18n.getUILanguage())
+  }
   render() {
     return (
       <Provider theme={theme}>

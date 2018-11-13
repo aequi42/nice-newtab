@@ -10,6 +10,7 @@
     "url": "https://github.com/aequi42/nice-newtab"
   },
   "dependencies": {
+    "moment": "^2.22.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-redux": "^5.1.0",

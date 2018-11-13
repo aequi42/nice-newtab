@@ -1,6 +1,8 @@
 import React from "react";
-import { Box } from "reakit";
+import { Box, Block } from "reakit";
 import { startTimer, stopTimer } from "../actions";
+import moment from "moment";
+
 
 export class Clock extends React.Component {
     componentDidMount() {
@@ -10,6 +12,9 @@ export class Clock extends React.Component {
         this.props.dispatch(stopTimer())
     }
     render() {
-        return <Box fontSize="3em" textShadow="0 0 4px black" padding={20} textAlign="right" width="100%" height="100%">{this.props.time.toLocaleTimeString()}</Box>
+        return <Box textShadow="0 0 4px black" textAlign="right" width="100%" height="100%">
+            <Block fontSize="3em">{moment().format("HH:mm:SS")}</Block>
+            <Block fontSize="2em">{moment(this.props.time).format("DD. MMMM")}</Block>
+        </Box>
     }
 }

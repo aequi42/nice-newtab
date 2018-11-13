@@ -6,7 +6,7 @@ import { TopSites } from "../Container/TopSites";
 
 
 export const Layout = (props) => {
-    return <Grid position="fixed" left={0} top={0} right={0} bottom={0} template={`
+    return <Grid position="fixed" left={0} top={0} right={0} bottom={0} padding={20} template={`
     ". . clock" 1fr
     ". topSites topSites" 1fr
     "lowerl lowerc lowerr" 1fr
