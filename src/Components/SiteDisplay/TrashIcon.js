@@ -1,6 +1,7 @@
 import React from "react"
 import trash from "./trash.svg"
 import { Samy, SvgProxy } from 'react-samy-svg';
+import { styled } from "reakit";
 
 const TrashIcon = (props) => <Samy path={trash} className={props.className}>
     <SvgProxy selector=".lid" />
