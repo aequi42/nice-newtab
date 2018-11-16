@@ -1,5 +1,7 @@
 # nice newtab
 
+[![CircleCI](https://circleci.com/gh/aequi42/nice-newtab.svg?style=svg)](https://circleci.com/gh/aequi42/nice-newtab)
+
 I wanted a nice, clean start page, which had to satisfy my following desires:
 
 1. Display a nice image acros the whole page
