@@ -34,7 +34,7 @@ const topSites = (state = [], action) => {
             stateToReturn.push(action.sites)
             break
         case ActionTypes.removeTopSite:
-            stateToReturn.push(state.filter(site => site.url !== action.site))
+            stateToReturn.push(state[state.length-1].filter(site => site.url !== action.site))
             break
     }
     return stateToReturn
