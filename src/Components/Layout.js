@@ -1,6 +1,5 @@
 import React from "react";
 import { Grid } from "reakit";
-import { Clock } from "./Clock";
 import { RefreshingClock } from "../Container/RefreshingClock";
 import { TopSites } from "../Container/TopSites";
 

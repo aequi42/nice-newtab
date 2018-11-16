@@ -22,6 +22,7 @@ const startPage = (state, action) => {
         case ActionTypes.timerTick:
             returnObject.currentTime = new Date()
             break
+        default: break
     }
     returnObject.topSitesToDisplay = topSites(state.topSitesToDisplay, action)
     return returnObject
@@ -34,8 +35,9 @@ const topSites = (state = [], action) => {
             stateToReturn.push(action.sites)
             break
         case ActionTypes.removeTopSite:
-            stateToReturn.push(state[state.length-1].filter(site => site.url !== action.site))
+            stateToReturn.push(state[state.length - 1].filter(site => site.url !== action.site))
             break
+        default: break
     }
     return stateToReturn
 }

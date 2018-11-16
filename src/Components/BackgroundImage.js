@@ -1,6 +1,6 @@
 import React from "react";
 import { styled, Grid, Link } from 'reakit'
-import { loadImage, imageReady } from "../actions";
+import { loadImage } from "../actions";
 
 const Background = styled.div`
   background-image: url(${props => props.url});
