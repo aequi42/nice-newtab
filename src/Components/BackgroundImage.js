@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, Grid, Link } from 'reakit'
+import { styled, Link, Box } from 'reakit'
 import { loadImage } from "../actions";
 
 const Background = styled.div`
@@ -13,26 +13,16 @@ const Background = styled.div`
   bottom: 0;
   z-index: -1;
 `
+export const BackgroundTitle = (props) => <Box textShadow="0 0 2px black">
+    {props.imageData.name} by <Link href={props.imageData.authorUrl} palette="white" target="_blank" fontWeight="Bold">{props.imageData.author}</Link>
+</Box>
 
 export const BackgroundImage = (props) => {
     if (!props.imageReady || Date.parse(props.imageData.loaded) < new Date(Date.now().valueOf() - 60000))
         props.dispatch(loadImage("landscape"))
-    const gridTemplate = `
-            "top top top" 15%
-            "cent cent cent" 1fr
-            "bottom bottom bottom" 15%
-        `
 
     return <React.Fragment>{
-        !props.imageReady ? <h1>LÄDT!</h1> : <Grid as={Background}
-            url={props.imageData.imageUrl}
-            template={gridTemplate} >
-            <Grid.Item area="bottom"
-                textShadow="0 0 2px black"
-                padding="15px">
-                {props.imageData.name} by <Link href={props.imageData.authorUrl} palette="white" target="_blank" fontWeight="Bold">{props.imageData.author}</Link>
-            </Grid.Item>
-        </Grid>
+        !props.imageReady ? <h1>LÄDT!</h1> : <Background url={props.imageData.imageUrl} />
     }
     </React.Fragment>
 }

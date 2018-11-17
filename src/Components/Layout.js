@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "reakit";
 import { RefreshingClock } from "../Container/RefreshingClock";
 import { TopSites } from "../Container/TopSites";
+import { PopulatedBackgroundTitle } from "../Container/PopulatedBackgroundImage";
 
 
 export const Layout = (props) => {
@@ -25,7 +26,9 @@ export const Layout = (props) => {
         <Grid.Item area="lowerc" />
         <Grid.Item area="lowerr" />
 
-        <Grid.Item area="bottoml" />
+        <Grid.Item area="bottoml" >
+            <PopulatedBackgroundTitle />
+        </Grid.Item>
         <Grid.Item area="bottomc" />
         <Grid.Item area="bottomr" />
     </Grid>

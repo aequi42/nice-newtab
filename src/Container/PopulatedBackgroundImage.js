@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { BackgroundImage } from "../Components/BackgroundImage";
+import { BackgroundImage, BackgroundTitle } from "../Components/BackgroundImage";
 
 const getBackgroundImage = (images) => {
     return images;
@@ -11,3 +11,4 @@ const mapStateToProps = state => ({
 })
 
 export const PopulatedBackgroundImage = connect(mapStateToProps)(BackgroundImage)
+export const PopulatedBackgroundTitle = connect(mapStateToProps)(BackgroundTitle)
